@@ -23,7 +23,7 @@
 </head>
 */<style>
    body {
-    background: url("img/banner/22.jpg") no-repeat center 10%;
+    background: url("img/banner/24.jpg") no-repeat center 10%;
    }
    .flat-blue .login-box .login-form .login-body {
     background-color: transparent;
@@ -63,7 +63,7 @@
                              <div class="login-col"><br>
                                 
                         
-                                    <h2 class="titulo-login">Entrar en Dopcoin</h2>
+                                    <h2 class="titulo-login">Iniciar Sesion</h2>
                                     <p class="titulo-login">Introduzca sus credenciales</p>
             
                              </div>
@@ -83,7 +83,7 @@
                                          Ingresando...
                                        </div>
                                     </div><br><br>
-                                    <p class="titulo-login"><a href="registrodop.php">Crear una nueva cuenta</a></p>
+                                    <!--<p class="titulo-login"><a href="registrodop.php">Crear una nueva cuenta</a></p> -->
                                 </div>
 
                             </form><br><br>
