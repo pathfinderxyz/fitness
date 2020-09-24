@@ -88,7 +88,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/themes/flat-blue.css">
     <!-- icono del sistema -->
-    <link rel="shortcut icon" href="img/icon2.png"/>
+    <link rel="shortcut icon" href="img/icon.png"/>
     <style type="text/css">
       .logov{
         margin-left: 15px;
@@ -198,7 +198,7 @@
                     <div class="side-menu-container">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#">
-                                <div class="logov"><img src="img/icon3.png" width="30px"/> Dopcoin</div>
+                                <div class="logov"><img src="img/icon_blanco.png" width="30px"/></div>
                             </a>
                             <button type="button" class="navbar-expand-toggle pull-right visible-xs">
                                 <i class="fa fa-times icon"></i>
