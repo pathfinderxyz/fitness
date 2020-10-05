@@ -1,6 +1,6 @@
  <div class="page-title">
-                        <span class="title">Dopcoin</span>
-                        <div class="description">Facil, rapido y seguro...</div>
+                        <span class="title">Inicio</span>
+                        <div class="description">Todo al alcance de tu mano</div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        Somos la plataforma oficial para intercambiar Dopcoin en Republica Dominicana.<br><br>
+                                        Podras gestionar toda la informacion de tus clientes a traves de este sistema !<br><br>
  
                                         Elija la opcion que desea realizar:<br><br>
 
@@ -25,26 +25,26 @@
                                     <ul class="icons-list">
 
                                          <li>
-                                            <a href="?page=datos">
+                                            <a href="?page=verclientes">
                                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Ver Perfil</span></a>
+                                            <span class="glyphicon-class">Ver Clientes</span></a>
                                         </li>
                                         <li>
-                                            <a href="?page=vip">
-                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">VIP</span>
+                                            <a href="?page=vertraining">
+                                            <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                                            <span class="glyphicon-class">Plan de entrenamientos</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="?page=compra">
-                                            <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Compra</span>
+                                            <a href="?page=grafico">
+                                            <span class="glyphicon glyphicon glyphicon-stats" aria-hidden="true"></span>
+                                            <span class="glyphicon-class">Avances</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="?page=venta">
-                                            <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Venta</span>
+                                            <a href="?page=calendario">
+                                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                                            <span class="glyphicon-class">Calendario</span>
                                             </a>
                                         </li>
                                     </ul>

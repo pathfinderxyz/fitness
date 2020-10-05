@@ -16,7 +16,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="card-title">
-                                    <div class="title">Clientes Registrados</div>
+                                    <div class="title">Peso por semana</div>
                                     </div>
                                 </div>
                                 
@@ -36,35 +36,28 @@
                                             <thead color="#000000">
                                                 <tr>
                                                     <th>Nombre y Apellido</th>
-                                                    <th>Sexo</th>
-                                                    <th>Fecha de nacimiento</th>
-                                                    <th>Direccion</th>
-                                                    <th>Deporte</th>
-                                                    <th>Ver</th>
+                                                    <th>Semana 1</th>
+                                                    <th>Semana 2</th>
+                                                    <th>Semana 3</th>
+                                                    <th>Semana 4</th>
+                                                    <th>Semana 5</th>
+                                                    <th>Semana 6</th>
+                                                    <th>Actualizar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                 <tr>
-                                                     <td>Jose Carvajal</td>
-                                                     <td>Masculino</td>
-                                                     <td>18/10/1991</td>
-                                                     <td>Porlamar, Nueva Esparta</td>
-                                                     <td>Beisbol</td> 
-                                                     <td>
-                                                          <button style="margin-bottom: 2px;" type="button"  class="btn btn-warning ">Entrenamiento</button>
-                                                          <button style="margin-bottom: 2px;" type="button"  class="btn btn-success ">Graficas</button>
-                                                          
-                                                     </td>                                                   
-                                                 </tr>
+                                                
                                                   <tr>
-                                                     <td>Michel Rodriguez</td>
-                                                     <td>Femenino</td>
-                                                     <td>28/11/1994</td>
-                                                     <td>Caracas</td>
-                                                     <td>Natacion</td> 
+                                                     <td>Jose Carvajal</td>
+                                                     <td>85 </td>
+                                                     <td>0</td>
+                                                     <td>0</td>
+                                                     <td>0</td>
+                                                     <td>0</td>
+                                                     <td>0</td>
                                                      <td>
-                                                          <button style="margin-bottom: 2px;" type="button"  class="btn btn-warning ">Entrenamiento</button>
-                                                          <button style="margin-bottom: 2px;" type="button"  class="btn btn-success ">Graficas</button>
+                                                          <button style="margin-bottom: 2px;" type="button"  class="btn btn-warning ">Actualizar Peso</button>
+                                                          <button style="margin-bottom: 2px;" type="button"  class="btn btn-danger ">Ver Grafica</button>
                                                           
                                                      </td>                                                   
                                                  </tr>
