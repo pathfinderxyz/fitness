@@ -7,7 +7,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <div class="title">Bienvenido</div>
+                                        <div class="title" style="background: #9675ce;color: #fff;">Bienvenido</div>
                                     </div>
                                     <div class="pull-right card-action">
                                         <div class="btn-group" role="group" aria-label="...">
