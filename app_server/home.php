@@ -5,9 +5,9 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header" style="background: #9675ce;">
                                     <div class="card-title">
-                                        <div class="title" style="background: #9675ce;color: #fff;">Bienvenido</div>
+                                        <div class="title" style="color: #fff;">Bienvenido</div>
                                     </div>
                                     <div class="pull-right card-action">
                                         <div class="btn-group" role="group" aria-label="...">
