@@ -1,138 +1,145 @@
+  <?php      
+    error_reporting(0);    
+    
+?>                            
 <!DOCTYPE html>
-<?php
-
-// No mostrar los errores de PHP
-//error_reporting(0);
-
-?>
-<html>
+<html lang="en">
 
 <head>
-    <title>Login</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
-    <!-- CSS Libs -->
-    <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="lib/css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="lib/css/bootstrap3/bootstrap-switch.min.css">
-    <link rel="stylesheet" type="text/css" href="lib/css/checkbox3.min.css">
-    <link rel="stylesheet" type="text/css" href="lib/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="lib/css/dataTables.bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="lib/css/select2.min.css">
-    <!-- CSS App -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/themes/flat-blue.css">
-    <link rel="shortcut icon" href="img/icon.png"/>
-</head>
-*/<style>
-   body {
-    background: url("img/banner/24.jpg") no-repeat center 10%;
-   }
-   .flat-blue .login-box .login-form .login-body {
-    background-color: transparent;
-   }
-   .flat-blue a:hover {
-    color: #2fadb3;
-}
-.flat-blue a {
-    color: #fff;
-}
-   .titulo-login{
-    color: #ffffff;
-    text-align: center;
-   }
-   .titulo-login2{
-    color: #ffffff;
-    text-align: left;
-   }
-   .login-page .login-button .btn {
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icon.png">
+    <title>Login | Nework</title>
     
-    width: 100%;
-     }
-   
-</style>/*
+    <!-- page css -->
+    <link href="dist/css/pages/login-register-lock.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
 
-<body class="flat-blue login-page">
-    <div class="container">
-        <div class="login-box">
-            <div>
-                <div class="login-form row">
-                   
-                    
-                    <div class="col-sm-12">
-                        <div class="login-body">
-                         
-                           
-                             <div class="login-col"><br>
-                                
-                        
-                                    <h2 class="titulo-login">Iniciar Sesion</h2>
-                                    <p class="titulo-login">Introduzca sus credenciales</p>
-            
-                             </div>
-
-                            <form  action="login/autenticacion.php" method="post" role="form" id="form_login">
-                                <div class="control">
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="Usuario o correo" />
-                                </div>
-                                <div class="control">
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" />
-                                </div>
-                                  <p class="titulo-login2"><a href="olvidopassword.php">Olvido su password?</a></p>
-                                <div class="login-button text-center">
-                                    <button type="submit" class="btn btn-info">Ingresar</button>
-                                    <div class="progress hidden" id="login-progress">
-                                       <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 1%">
-                                         Ingresando...
-                                       </div>
-                                    </div><br><br>
-                                    <!--<p class="titulo-login"><a href="registrodop.php">Crear una nueva cuenta</a></p> -->
-                                </div>
-
-                            </form><br><br>
-                            <div>
-                               <?php
-                                 if ($_GET["errorusuario"]=="si"){
-                              ?>
-                                 <div class="alert"><strong style="color:#B71C1C;"> Datos Incorrectos !</strong></div>
+<body class="skin-default card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Cargando</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <section id="wrapper">
+        <div class="login-register" style="background-image:url(assets/images/banner/24.jpg);">
+            <div class="login-box card">
                             <?php
-                                 }
+                                 if ($_GET["errorusuario"]=="si"){
                              ?>
-                              </div>
+                                 <div class="alert"><strong style="color:#B71C1C;"> Datos Incorrectos !</strong></div>
+                           <?php  
+                               }elseif ($_GET["registro"]=="exitoso") {
+                                ?>
+                                   <br><div class="success"><strong style="color: #ffffff;margin-left: 80px;background-color: #5baf30;padding: 8px;border-radius: 3px;">¡Te has registrado con exitoso!</strong></div>
+                            <?php 
+                                 }  
+                             ?>
+                <div class="card-body">
+                    <form class="form-horizontal form-material" id="loginform" action="login/autenticacion.php" method="post">
+                        <h3 class="text-center m-b-20">Iniciar Session</h3>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <input class="form-control" name="username" type="text" required="" placeholder="Usuario"> </div>
                         </div>
-                              
-                       
-                    </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" name="password"  type="password" required="" placeholder="Password"> </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <div class="d-flex no-block align-items-center">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <label class="custom-control-label" for="customCheck1">Recuerdame</label>
+                                    </div> 
+                                    <div class="ml-auto">
+                                        <a href="javascript:void(0)" id="to-recover" class="text-muted">¿Olvidaste pwd?</a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="col-xs-12 p-b-20">
+                                <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Entrar</button>
+                            </div>
+                        </div>
+                         
+                        
+                        
+                    </form>
+
+                    <form class="form-horizontal" id="recoverform" action="index.html">
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <h3>Recuperar contraseña</h3>
+                                <p class="text-muted">Ingrese su correo electrónico y se le enviarán las instrucciones para cambiarla.</p>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" required="" placeholder="Correo Electronico"> </div>
+                        </div>
+                        <div class="form-group text-center m-t-20">
+                            <div class="col-xs-12">
+                                <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="button" onClick="location.href='index.php'">Resetear</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Javascript Libs -->
-   <script type="text/javascript" src="lib/js/jquery.min.js"></script>
-            <script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
-            <script type="text/javascript" src="lib/js/Chart.min.js"></script>
-            <script type="text/javascript" src="lib/js/bootstrap-switch.min.js"></script>
-            <script type="text/javascript" src="lib/js/jquery.matchHeight-min.js"></script>
-            <script type="text/javascript" src="lib/js/jquery.dataTables.min.js"></script>
-            <script type="text/javascript" src="lib/js/dataTables.bootstrap.min.js"></script>
-            <script type="text/javascript" src="lib/js/select2.full.min.js"></script>
-            <script type="text/javascript" src="lib/js/ace/ace.js"></script>
-            <script type="text/javascript" src="lib/js/ace/mode-html.js"></script>
-            <script type="text/javascript" src="lib/js/ace/theme-github.js"></script>
-            <!-- Javascript -->
-            <script type="text/javascript" src="js/app.js"></script>
-            <script type="text/javascript" src="js/index.js"></script>
-         <?php
-             session_start();
-             if ($_SESSION["autenticado"] == "SI") {
-             session_destroy();
-             exit();
-             }
-         ?>
-
+    </section>
+    
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="assets/node_modules/popper/popper.min.js"></script>
+    <script src="assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--Custom JavaScript -->
+    <script type="text/javascript">
+        $(function() {
+            $(".preloader").fadeOut();
+        });
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+        // ============================================================== 
+        // Login and Recover Password 
+        // ============================================================== 
+        $('#to-recover').on("click", function() {
+            $("#loginform").slideUp();
+            $("#recoverform").fadeIn();
+        });
+    </script>
+    
 </body>
 
 </html>
