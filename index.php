@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icon.png">
-    <title>Login | Nework</title>
+    <title>Login</title>
     
     <!-- page css -->
     <link href="dist/css/pages/login-register-lock.css" rel="stylesheet">
@@ -75,9 +75,7 @@
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1">Recuerdame</label>
                                     </div> 
-                                    <div class="ml-auto">
-                                        <a href="javascript:void(0)" id="to-recover" class="text-muted">¿Olvidaste pwd?</a> 
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
