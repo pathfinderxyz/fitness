@@ -1,0 +1,195 @@
+<div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor">Agenda</h4>
+                    </div>
+                  
+                </div>
+     <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                          <div class="">
+                                <div class="row">
+                                    <div class="col-lg-1">
+                                    </div>
+                                    <div class="col-lg-10">
+                                      <div class="card-body b-l calender-sidebar">
+                                            <div id="calendar"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1">
+                                    </div>
+                                 </div>   
+                           </div>
+                          </div> 
+                       </div>   
+ </div>
+
+</div>
+
+
+<script>
+
+  $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+
+      dayClick:function(date,jsEvent,View){
+
+        $('#btnagregar').prop("disabled",false);
+        $('#btnmodificar').prop("disabled",true);
+        $('#btneliminar').prop("disabled",true);
+
+        limpiarformulario();
+        $("#txtfecha").val(date.format());
+        $("#modaleventos").modal();
+      },
+
+     
+      events: 'http://localhost/sisfit/app/calendario/eventos.php',
+      
+
+      eventClick: function(calEvent,jsEvent,View){
+
+
+        $('#btnagregar').prop("disabled",true);
+        $('#btnmodificar').prop("disabled",false);
+        $('#btneliminar').prop("disabled",false);
+
+        
+        $('#tituloevento').html(calEvent.title);
+        
+        $('#txtdescripcion').val(calEvent.descripcion);
+        $('#txtid').val(calEvent.id);
+        $('#txttitulo').val(calEvent.title);
+        $('#txtcolor').val(calEvent.color);
+
+        fechahora= calEvent.start._i.split(" ");
+        $('#txtfecha').val(fechahora[0]);
+
+
+
+        $("#modaleventos").modal(); 
+      }   
+    });
+
+  });
+
+</script>
+
+
+<!-- Modal (agregar, eliminar, modificar)-->
+<div class="modal fade" id="modaleventos" tabindex="-1" role="dialog" aria-labelledby="modaleventos" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tituloevento"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+       <input type="hidden" id="txtid" name="txtid">
+       <input type="hidden" id="txtfecha" name="txtfecha">
+
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <label>Titulo</label>
+              <input type="text" id="txttitulo" name="txttitulo" class="form-control" placeholder="Introduzca un titulo">
+          </div>  
+          <div class="form-group col-md-4">
+            <label>Hora del evento</label>
+               <div class="input-group clockpicker" data-autoclose="true">
+                <input type="text" id="txthora" name="txthora" class="form-control" value="10:10:00" >
+               </div>
+         </div>  
+        </div>  
+          <div class="form-group">
+            <label>Descripcion</label>
+                <textarea id="txtdescripcion" rows="3" name="txtdescripcion" class="form-control"></textarea>
+          </div> 
+          <div class="form-group">
+            <label>Color (Elija un color para el Evento)</label>    
+          <input type="color" id="txtcolor" value="#e1ff00" name="txtcolor" class="form-control" style="height: 36px;">
+          </div>
+
+      <div class="modal-footer">
+        <button type="button" id="btnagregar" class="btn btn-success">Agregar</button>
+        <button type="button" id="btnmodificar" class="btn btn-dark">Modificar</button>
+        <button type="button" id="btneliminar" class="btn btn-danger">Borrar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    var NuevoEvento;
+
+    $("#btnagregar").click(function(){
+      RecolectarDatosGUI();
+      EnviarInformacion('agregar',NuevoEvento);
+
+    });
+      $("#btneliminar").click(function(){
+      RecolectarDatosGUI();
+      EnviarInformacion('eliminar',NuevoEvento);
+
+    });
+      $("#btnmodificar").click(function(){
+      RecolectarDatosGUI();
+      EnviarInformacion('modificar',NuevoEvento);
+
+    });
+
+    function RecolectarDatosGUI(){
+      NuevoEvento={
+        id:$("#txtid").val(),
+        title:$("#txttitulo").val(),
+        start:$("#txtfecha").val()+" "+$("#txthora").val(),
+        color:$("#txtcolor").val(),
+        descripcion:$("#txtdescripcion").val(),
+        textcolor:"#FFFFFF",
+        end:$("#txtfecha").val()+" "+$("#txthora").val(),
+        hora:$("#txthora").val(),
+      };
+    }
+
+    function EnviarInformacion(accion,objEvento){
+      $.ajax({
+        type:'POST',
+        url:'app/calendario/eventos.php?accion='+accion,
+        data:objEvento,
+        success:function(msg){
+          if (msg) {
+            $('#calendar').fullCalendar('refetchEvents');
+            $("#modaleventos").modal("toggle");
+          }
+        },
+        error:function(){
+          alert("hay un error..");
+        }
+
+      });
+    }
+
+    $('.clockpicker').clockpicker();
+     function limpiarformulario(){
+        $('#txtid').val('');
+        $('#txtdescripcion').val('');
+        $('#txttitulo').val('');
+        $('#txtcolor').val('');
+    }
+
+</script>
+

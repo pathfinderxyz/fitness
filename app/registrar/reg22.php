@@ -24,7 +24,15 @@
 	$sql = pg_query("INSERT INTO persona(nombre,apellido,sexo,direccion,fecha,telefono,peso,trabajo,finalidad,meta,hacedeporte,deporte,dieta,motivo,planp) 
 		VALUES ('$nombre','$apellido','$sexo','$direccion','$fecha','$tel','$peso','$trabajo','$finalidad','$meta','$hacedeporte','$deporte','$dieta','$motivo','$plan')");
 
+	
  if ($sql) {
+        
+        $sql2 = pg_query("SELECT MAX(id) AS id FROM persona");
+        $row2 = pg_fetch_assoc($sql2);
+        $idpersonapeso = $row2['id'];
+        $mes = date("M");
+        $agregapeso = pg_query("INSERT INTO pesos(id_personas,pesos,mes) VALUES ('$idpersonapeso','$peso','$mes')");
+ 
 		header('Location: ../../dashboard.php?page=reg2&registro=exitoso');//Se guardo
 	}else {
 		header('Location: ../../dashboard.php?page=reg2&errorusuario=si');//No se guardo el correo o el pasaporte ya existe !

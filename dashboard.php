@@ -1,6 +1,5 @@
 <?php 
-    session_start();
-
+    
     $id=$_GET['id'];
         
     error_reporting(0);
@@ -19,11 +18,7 @@
         $_SESSION['nombre']=$info['nombre'];
         $_SESSION['apellido']=$info['apellido'];
         $_SESSION['fecha']=$info['fecha'];
-        $_SESSION['correo']=$info['correo'];
-        $_SESSION['telefono']=$info['telefono'];
-        $_SESSION['pais']=$info['pais'];
-         $_SESSION['patrocinador']=$info['patrocinador'];
-         $_SESSION['id_refer_padre']=$info['id_refer_padre'];
+     
         
     }
     
@@ -57,7 +52,11 @@
             }elseif ($_GET['page'] == 'grafica') {
                 $file = 'metas/graficas.php';   
             }elseif ($_GET['page'] == 'agenda') {
-                $file = 'agenda/agenda.php';   
+                $file = 'calendario/index.html';   
+            }elseif ($_GET['page'] == 'usuario') {
+                $file = 'usuario/crear_usuario.php';   
+            }elseif ($_GET['page'] == 'cambio') {
+                $file = 'usuario/cambio.php';   
             }
         }else{
             $file = 'inicio.php';  
@@ -82,7 +81,7 @@
     <link href="assets/node_modules/morrisjs/morris.css" rel="stylesheet">
     <!--Toaster Popup message CSS -->
     <link href="assets/node_modules/toast-master/css/jquery.toast.css" rel="stylesheet">
-    <link href="assets/node_modules/calendar/dist/fullcalendar.css" rel="stylesheet" />
+  
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
@@ -92,10 +91,20 @@
     <!-- Custom CSS -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <link href='app/calendario/css/fullcalendar.min.css' rel='stylesheet' />
+    <link href='app/calendario/css/bootstrap-clockpicker.css' rel='stylesheet' />
+
+
+    <script src='app/calendario/js/moment.min.js'></script>
+    <script src='app/calendario/js/jquery.min.js'></script>
+    <script src='app/calendario/js/fullcalendar.min.js'></script>
+    <script src='app/calendario/js/es.js'></script>
+    <script src='app/calendario/js/bootstrap-clockpicker.js'></script>
+
+
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+<!--[endif]-->
 
 <style type="text/css">
 .topbar .navbar-collapse {
@@ -259,10 +268,10 @@
                             </a>
                              <ul aria-expanded="false" class="collapse">
                                 <li>
-                                    <a href="#">Agregar usuario</a>
+                                    <a href="?page=usuario">Agregar usuario</a>
                                 </li>
                                 <li>
-                                    <a href="#">Cambiar password</a>
+                                    <a href="?page=cambio">Cambiar password</a>
                                 </li>
                             </ul>
                         </li>
@@ -352,7 +361,7 @@
     <script src="assets/node_modules/calendar/jquery-ui.min.js"></script>
     <script src="assets/node_modules/moment/moment.js"></script>
     <script src='assets/node_modules/calendar/dist/fullcalendar.min.js'></script>
-    <script src="assets/node_modules/calendar/dist/cal-init.js"></script>
+  
     <!-- end - This is for export functionality only -->
     <script>
         $(function () {

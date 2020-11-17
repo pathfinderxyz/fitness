@@ -50,7 +50,7 @@
                                                 <td>'.$info['nombre'].' '.$info['apellido'].'</td>
                                                 <td>'.$info['peso'].'</td>
                                                 <td>'.$info['meta'].'</td>
-                                                <td><a class="btn btn-dark" href="?page=grafica" role="button"><span class="btn-label"><i class="icon-graph"></i></span> Ver Grafica</a></td>
+                                                <td><a class="btn btn-dark" href="?page=grafica&idpp='.$info['id'].'" role="button"><span class="btn-label"><i class="icon-graph"></i></span> Ver Grafica</a></td>
                                                 
                                                 </tr>';
                                              }
